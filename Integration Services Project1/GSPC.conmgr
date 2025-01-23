@@ -1,0 +1,10 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="GSPC"
+  DTS:DTSID="{D81A90AD-DA17-4CF1-B498-3F496845035F}"
+  DTS:CreationName="ODBC">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Dsn=GSPC;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

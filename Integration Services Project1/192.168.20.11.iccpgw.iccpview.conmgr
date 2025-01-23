@@ -1,0 +1,16 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="192.168.20.11.iccpgw.iccpview"
+  DTS:DTSID="{FEA086FB-948D-4888-BBF8-978572FE71CB}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=192.168.20.11;User ID=iccpview;Initial Catalog=iccpgw;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-{FEA086FB-948D-4888-BBF8-978572FE71CB}192.168.20.11.iccpgw.iccpview;">
+      <DTS:Password
+        DTS:Name="Password"
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAa5IgArC5h0KxeW7UH01nJgAAAAACAAAAAAADZgAAwAAAABAAAAARysrTY40J4hMpOnSTJYD7AAAAAASAAACgAAAAEAAAAMUlIQDmeBY1AKoVUO0kDnt4AAAAoQ4Ccwew9YF/Xl92KvZ9Zcg0T7o6Y3CvMajIQaaGbacGxXf6623g5KXIYHJ0DocYGmrd7DOr205EBR5CJ0l0Kh2BhEg7L4EMQuX9QJKEjw9DsPxpLTlR6y7Ufj82GPl8C9zkfjbSGWV7LgxEIbiWRAEh4T0H7Qa3FAAAAO8qZJa3kDVC1FOEMnjyLdjayyk3</DTS:Password>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

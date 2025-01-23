@@ -1,0 +1,10 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="jb.cna1.central.nasa"
+  DTS:DTSID="{601053FA-FD32-4743-B58C-C1E26F16014F}"
+  DTS:CreationName="ODBC">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Dsn=jb.cna1.central.nasa;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

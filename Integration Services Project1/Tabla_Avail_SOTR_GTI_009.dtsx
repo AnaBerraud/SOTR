@@ -1,0 +1,1473 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/28/2024 5:24:19 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="CENTRAL1056"
+  DTS:CreatorName="CENTRAL\maalonso"
+  DTS:DTSID="{AEB0054F-43D6-416C-934D-2C2C9A7941E9}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.170"
+  DTS:LocaleID="3082"
+  DTS:ObjectName="Tabla_Avail_SOTR_GTI_009"
+  DTS:PackageType="5"
+  DTS:VersionBuild="12"
+  DTS:VersionGUID="{F6A15528-36FC-4B4C-9D96-CC5AF25FE586}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DF Final"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarea Flujo de datos"
+      DTS:DTSID="{D14CAE2A-0DB8-4704-8D46-5B297418B68B}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DF Final"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DF Final\DST Final"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino de OLE DB"
+              name="DST Final"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[Final].[avail_sotr_GTI_009]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable">User::Staging_Table_Name</property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica opciones para usar con la carga rápida. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DF Final\DST Final.Connections[OleDbConnection]"
+                  connectionManagerID="{D3C1FDCC-EB20-42DD-BF58-438FB6ACFF68}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[TableroPBI.central.nasa.DEV]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DF Final\DST Final.Inputs[Entrada de destino de OLE DB]"
+                  errorOrTruncationOperation="Insertar"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DF Final\DST Final.Inputs[Entrada de destino de OLE DB].Columns[date_time]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="date_time"
+                      externalMetadataColumnId="Package\DF Final\DST Final.Inputs[Entrada de destino de OLE DB].ExternalColumns[date_time]"
+                      lineageId="Package\DF Final\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[date_time]" />
+                    <inputColumn
+                      refId="Package\DF Final\DST Final.Inputs[Entrada de destino de OLE DB].Columns[link_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="32"
+                      cachedName="link_name"
+                      externalMetadataColumnId="Package\DF Final\DST Final.Inputs[Entrada de destino de OLE DB].ExternalColumns[link_name]"
+                      lineageId="Package\DF Final\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[link_name]" />
+                    <inputColumn
+                      refId="Package\DF Final\DST Final.Inputs[Entrada de destino de OLE DB].Columns[group_name_prefix]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="32"
+                      cachedName="group_name_prefix"
+                      externalMetadataColumnId="Package\DF Final\DST Final.Inputs[Entrada de destino de OLE DB].ExternalColumns[group_name_prefix]"
+                      lineageId="Package\DF Final\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[group_name_prefix]" />
+                    <inputColumn
+                      refId="Package\DF Final\DST Final.Inputs[Entrada de destino de OLE DB].Columns[inires]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="inires"
+                      externalMetadataColumnId="Package\DF Final\DST Final.Inputs[Entrada de destino de OLE DB].ExternalColumns[inires]"
+                      lineageId="Package\DF Final\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[inires]" />
+                    <inputColumn
+                      refId="Package\DF Final\DST Final.Inputs[Entrada de destino de OLE DB].Columns[sectime]"
+                      cachedDataType="i8"
+                      cachedName="sectime"
+                      externalMetadataColumnId="Package\DF Final\DST Final.Inputs[Entrada de destino de OLE DB].ExternalColumns[sectime]"
+                      lineageId="Package\DF Final\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[sectime]" />
+                    <inputColumn
+                      refId="Package\DF Final\DST Final.Inputs[Entrada de destino de OLE DB].Columns[rmonth]"
+                      cachedDataType="i4"
+                      cachedName="rmonth"
+                      externalMetadataColumnId="Package\DF Final\DST Final.Inputs[Entrada de destino de OLE DB].ExternalColumns[rmonth]"
+                      lineageId="Package\DF Final\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[rmonth]" />
+                    <inputColumn
+                      refId="Package\DF Final\DST Final.Inputs[Entrada de destino de OLE DB].Columns[ryear]"
+                      cachedDataType="i4"
+                      cachedName="ryear"
+                      externalMetadataColumnId="Package\DF Final\DST Final.Inputs[Entrada de destino de OLE DB].ExternalColumns[ryear]"
+                      lineageId="Package\DF Final\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[ryear]" />
+                    <inputColumn
+                      refId="Package\DF Final\DST Final.Inputs[Entrada de destino de OLE DB].Columns[min_total]"
+                      cachedDataType="i4"
+                      cachedName="min_total"
+                      externalMetadataColumnId="Package\DF Final\DST Final.Inputs[Entrada de destino de OLE DB].ExternalColumns[min_total]"
+                      lineageId="Package\DF Final\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[min_total]" />
+                    <inputColumn
+                      refId="Package\DF Final\DST Final.Inputs[Entrada de destino de OLE DB].Columns[min_unavail]"
+                      cachedDataType="i4"
+                      cachedName="min_unavail"
+                      externalMetadataColumnId="Package\DF Final\DST Final.Inputs[Entrada de destino de OLE DB].ExternalColumns[min_unavail]"
+                      lineageId="Package\DF Final\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[min_unavail]" />
+                    <inputColumn
+                      refId="Package\DF Final\DST Final.Inputs[Entrada de destino de OLE DB].Columns[porc_avail]"
+                      cachedDataType="r8"
+                      cachedName="porc_avail"
+                      externalMetadataColumnId="Package\DF Final\DST Final.Inputs[Entrada de destino de OLE DB].ExternalColumns[porc_avail]"
+                      lineageId="Package\DF Final\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[porc_avail]" />
+                    <inputColumn
+                      refId="Package\DF Final\DST Final.Inputs[Entrada de destino de OLE DB].Columns[annual_min_total]"
+                      cachedDataType="i4"
+                      cachedName="annual_min_total"
+                      externalMetadataColumnId="Package\DF Final\DST Final.Inputs[Entrada de destino de OLE DB].ExternalColumns[annual_min_total]"
+                      lineageId="Package\DF Final\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[annual_min_total]" />
+                    <inputColumn
+                      refId="Package\DF Final\DST Final.Inputs[Entrada de destino de OLE DB].Columns[annual_min_unavail]"
+                      cachedDataType="i4"
+                      cachedName="annual_min_unavail"
+                      externalMetadataColumnId="Package\DF Final\DST Final.Inputs[Entrada de destino de OLE DB].ExternalColumns[annual_min_unavail]"
+                      lineageId="Package\DF Final\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[annual_min_unavail]" />
+                    <inputColumn
+                      refId="Package\DF Final\DST Final.Inputs[Entrada de destino de OLE DB].Columns[annual_porc_avail]"
+                      cachedDataType="r8"
+                      cachedName="annual_porc_avail"
+                      externalMetadataColumnId="Package\DF Final\DST Final.Inputs[Entrada de destino de OLE DB].ExternalColumns[annual_porc_avail]"
+                      lineageId="Package\DF Final\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[annual_porc_avail]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DF Final\DST Final.Inputs[Entrada de destino de OLE DB].ExternalColumns[date_time]"
+                      dataType="dbTimeStamp"
+                      name="date_time" />
+                    <externalMetadataColumn
+                      refId="Package\DF Final\DST Final.Inputs[Entrada de destino de OLE DB].ExternalColumns[link_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="32"
+                      name="link_name" />
+                    <externalMetadataColumn
+                      refId="Package\DF Final\DST Final.Inputs[Entrada de destino de OLE DB].ExternalColumns[group_name_prefix]"
+                      codePage="1252"
+                      dataType="str"
+                      length="32"
+                      name="group_name_prefix" />
+                    <externalMetadataColumn
+                      refId="Package\DF Final\DST Final.Inputs[Entrada de destino de OLE DB].ExternalColumns[inires]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="inires" />
+                    <externalMetadataColumn
+                      refId="Package\DF Final\DST Final.Inputs[Entrada de destino de OLE DB].ExternalColumns[sectime]"
+                      dataType="i8"
+                      name="sectime" />
+                    <externalMetadataColumn
+                      refId="Package\DF Final\DST Final.Inputs[Entrada de destino de OLE DB].ExternalColumns[rmonth]"
+                      dataType="i4"
+                      name="rmonth" />
+                    <externalMetadataColumn
+                      refId="Package\DF Final\DST Final.Inputs[Entrada de destino de OLE DB].ExternalColumns[ryear]"
+                      dataType="i4"
+                      name="ryear" />
+                    <externalMetadataColumn
+                      refId="Package\DF Final\DST Final.Inputs[Entrada de destino de OLE DB].ExternalColumns[min_total]"
+                      dataType="i4"
+                      name="min_total" />
+                    <externalMetadataColumn
+                      refId="Package\DF Final\DST Final.Inputs[Entrada de destino de OLE DB].ExternalColumns[min_unavail]"
+                      dataType="i4"
+                      name="min_unavail" />
+                    <externalMetadataColumn
+                      refId="Package\DF Final\DST Final.Inputs[Entrada de destino de OLE DB].ExternalColumns[porc_avail]"
+                      dataType="r8"
+                      name="porc_avail" />
+                    <externalMetadataColumn
+                      refId="Package\DF Final\DST Final.Inputs[Entrada de destino de OLE DB].ExternalColumns[annual_min_total]"
+                      dataType="i4"
+                      name="annual_min_total" />
+                    <externalMetadataColumn
+                      refId="Package\DF Final\DST Final.Inputs[Entrada de destino de OLE DB].ExternalColumns[annual_min_unavail]"
+                      dataType="i4"
+                      name="annual_min_unavail" />
+                    <externalMetadataColumn
+                      refId="Package\DF Final\DST Final.Inputs[Entrada de destino de OLE DB].ExternalColumns[annual_porc_avail]"
+                      dataType="r8"
+                      name="annual_porc_avail" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DF Final\DST Final.Outputs[Salida de error de destino de OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de OLE DB"
+                  synchronousInputId="Package\DF Final\DST Final.Inputs[Entrada de destino de OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF Final\DST Final.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DF Final\DST Final.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DF Final\DST Final.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DF Final\DST Final.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DF Final\Origen de OLE DB"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Origen de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;7"
+              description="Origen de OLE DB"
+              name="Origen de OLE DB"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[Staging].[avail_sotr_GTI_009]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable">User::SQL_Query_Source_iccpgw</property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT  * FROM iccpgw.dbo.avail_sotr</property>
+                <property
+                  dataType="System.String"
+                  description="Variable que contiene el comando SQL para ejecutar."
+                  name="SqlCommandVariable">User::SQL_Query_Source_iccpgw</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Asignaciones entre los parámetros del comando SQL y las variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DF Final\Origen de OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="{D3C1FDCC-EB20-42DD-BF58-438FB6ACFF68}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[TableroPBI.central.nasa.DEV]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DF Final\Origen de OLE DB.Outputs[Salida de origen de OLE DB]"
+                  name="Salida de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF Final\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[date_time]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF Final\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[date_time]"
+                      lineageId="Package\DF Final\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[date_time]"
+                      name="date_time"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF Final\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[link_name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF Final\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[link_name]"
+                      length="32"
+                      lineageId="Package\DF Final\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[link_name]"
+                      name="link_name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF Final\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[group_name_prefix]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF Final\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[group_name_prefix]"
+                      length="32"
+                      lineageId="Package\DF Final\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[group_name_prefix]"
+                      name="group_name_prefix"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF Final\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[inires]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF Final\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[inires]"
+                      length="1"
+                      lineageId="Package\DF Final\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[inires]"
+                      name="inires"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF Final\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[sectime]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF Final\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[sectime]"
+                      lineageId="Package\DF Final\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[sectime]"
+                      name="sectime"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF Final\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[rmonth]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF Final\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[rmonth]"
+                      lineageId="Package\DF Final\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[rmonth]"
+                      name="rmonth"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF Final\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[ryear]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF Final\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[ryear]"
+                      lineageId="Package\DF Final\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[ryear]"
+                      name="ryear"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF Final\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[min_total]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF Final\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[min_total]"
+                      lineageId="Package\DF Final\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[min_total]"
+                      name="min_total"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF Final\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[min_unavail]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF Final\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[min_unavail]"
+                      lineageId="Package\DF Final\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[min_unavail]"
+                      name="min_unavail"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF Final\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[porc_avail]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF Final\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[porc_avail]"
+                      lineageId="Package\DF Final\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[porc_avail]"
+                      name="porc_avail"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF Final\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[annual_min_total]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF Final\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[annual_min_total]"
+                      lineageId="Package\DF Final\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[annual_min_total]"
+                      name="annual_min_total"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF Final\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[annual_min_unavail]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF Final\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[annual_min_unavail]"
+                      lineageId="Package\DF Final\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[annual_min_unavail]"
+                      name="annual_min_unavail"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF Final\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[annual_porc_avail]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF Final\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[annual_porc_avail]"
+                      lineageId="Package\DF Final\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[annual_porc_avail]"
+                      name="annual_porc_avail"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DF Final\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[date_time]"
+                      dataType="dbTimeStamp"
+                      name="date_time" />
+                    <externalMetadataColumn
+                      refId="Package\DF Final\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[link_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="32"
+                      name="link_name" />
+                    <externalMetadataColumn
+                      refId="Package\DF Final\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[group_name_prefix]"
+                      codePage="1252"
+                      dataType="str"
+                      length="32"
+                      name="group_name_prefix" />
+                    <externalMetadataColumn
+                      refId="Package\DF Final\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[inires]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="inires" />
+                    <externalMetadataColumn
+                      refId="Package\DF Final\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[sectime]"
+                      dataType="i8"
+                      name="sectime" />
+                    <externalMetadataColumn
+                      refId="Package\DF Final\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[rmonth]"
+                      dataType="i4"
+                      name="rmonth" />
+                    <externalMetadataColumn
+                      refId="Package\DF Final\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[ryear]"
+                      dataType="i4"
+                      name="ryear" />
+                    <externalMetadataColumn
+                      refId="Package\DF Final\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[min_total]"
+                      dataType="i4"
+                      name="min_total" />
+                    <externalMetadataColumn
+                      refId="Package\DF Final\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[min_unavail]"
+                      dataType="i4"
+                      name="min_unavail" />
+                    <externalMetadataColumn
+                      refId="Package\DF Final\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[porc_avail]"
+                      dataType="r8"
+                      name="porc_avail" />
+                    <externalMetadataColumn
+                      refId="Package\DF Final\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[annual_min_total]"
+                      dataType="i4"
+                      name="annual_min_total" />
+                    <externalMetadataColumn
+                      refId="Package\DF Final\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[annual_min_unavail]"
+                      dataType="i4"
+                      name="annual_min_unavail" />
+                    <externalMetadataColumn
+                      refId="Package\DF Final\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[annual_porc_avail]"
+                      dataType="r8"
+                      name="annual_porc_avail" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DF Final\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF Final\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[date_time]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DF Final\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[date_time]"
+                      name="date_time" />
+                    <outputColumn
+                      refId="Package\DF Final\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[link_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="32"
+                      lineageId="Package\DF Final\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[link_name]"
+                      name="link_name" />
+                    <outputColumn
+                      refId="Package\DF Final\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[group_name_prefix]"
+                      codePage="1252"
+                      dataType="str"
+                      length="32"
+                      lineageId="Package\DF Final\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[group_name_prefix]"
+                      name="group_name_prefix" />
+                    <outputColumn
+                      refId="Package\DF Final\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[inires]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\DF Final\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[inires]"
+                      name="inires" />
+                    <outputColumn
+                      refId="Package\DF Final\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[sectime]"
+                      dataType="i8"
+                      lineageId="Package\DF Final\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[sectime]"
+                      name="sectime" />
+                    <outputColumn
+                      refId="Package\DF Final\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[rmonth]"
+                      dataType="i4"
+                      lineageId="Package\DF Final\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[rmonth]"
+                      name="rmonth" />
+                    <outputColumn
+                      refId="Package\DF Final\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[ryear]"
+                      dataType="i4"
+                      lineageId="Package\DF Final\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[ryear]"
+                      name="ryear" />
+                    <outputColumn
+                      refId="Package\DF Final\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[min_total]"
+                      dataType="i4"
+                      lineageId="Package\DF Final\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[min_total]"
+                      name="min_total" />
+                    <outputColumn
+                      refId="Package\DF Final\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[min_unavail]"
+                      dataType="i4"
+                      lineageId="Package\DF Final\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[min_unavail]"
+                      name="min_unavail" />
+                    <outputColumn
+                      refId="Package\DF Final\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[porc_avail]"
+                      dataType="r8"
+                      lineageId="Package\DF Final\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[porc_avail]"
+                      name="porc_avail" />
+                    <outputColumn
+                      refId="Package\DF Final\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[annual_min_total]"
+                      dataType="i4"
+                      lineageId="Package\DF Final\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[annual_min_total]"
+                      name="annual_min_total" />
+                    <outputColumn
+                      refId="Package\DF Final\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[annual_min_unavail]"
+                      dataType="i4"
+                      lineageId="Package\DF Final\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[annual_min_unavail]"
+                      name="annual_min_unavail" />
+                    <outputColumn
+                      refId="Package\DF Final\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[annual_porc_avail]"
+                      dataType="r8"
+                      lineageId="Package\DF Final\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[annual_porc_avail]"
+                      name="annual_porc_avail" />
+                    <outputColumn
+                      refId="Package\DF Final\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DF Final\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DF Final\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DF Final\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DF Final.Paths[Salida de origen de OLE DB]"
+              endId="Package\DF Final\DST Final.Inputs[Entrada de destino de OLE DB]"
+              name="Salida de origen de OLE DB"
+              startId="Package\DF Final\Origen de OLE DB.Outputs[Salida de origen de OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\DF Staging"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarea Flujo de datos"
+      DTS:DTSID="{F5682A0D-15B5-4BBA-AF1E-8FDC25386CEF}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DF Staging"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DF Staging\DST Staging"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino de OLE DB"
+              name="DST Staging"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[Staging].[avail_sotr_GTI_009]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable">User::Staging_Table_Name</property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica opciones para usar con la carga rápida. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DF Staging\DST Staging.Connections[OleDbConnection]"
+                  connectionManagerID="{D3C1FDCC-EB20-42DD-BF58-438FB6ACFF68}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[TableroPBI.central.nasa.DEV]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DF Staging\DST Staging.Inputs[Entrada de destino de OLE DB]"
+                  errorOrTruncationOperation="Insertar"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DF Staging\DST Staging.Inputs[Entrada de destino de OLE DB].Columns[date_time]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="date_time"
+                      externalMetadataColumnId="Package\DF Staging\DST Staging.Inputs[Entrada de destino de OLE DB].ExternalColumns[date_time]"
+                      lineageId="Package\DF Staging\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[date_time]" />
+                    <inputColumn
+                      refId="Package\DF Staging\DST Staging.Inputs[Entrada de destino de OLE DB].Columns[link_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="32"
+                      cachedName="link_name"
+                      externalMetadataColumnId="Package\DF Staging\DST Staging.Inputs[Entrada de destino de OLE DB].ExternalColumns[link_name]"
+                      lineageId="Package\DF Staging\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[link_name]" />
+                    <inputColumn
+                      refId="Package\DF Staging\DST Staging.Inputs[Entrada de destino de OLE DB].Columns[group_name_prefix]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="32"
+                      cachedName="group_name_prefix"
+                      externalMetadataColumnId="Package\DF Staging\DST Staging.Inputs[Entrada de destino de OLE DB].ExternalColumns[group_name_prefix]"
+                      lineageId="Package\DF Staging\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[group_name_prefix]" />
+                    <inputColumn
+                      refId="Package\DF Staging\DST Staging.Inputs[Entrada de destino de OLE DB].Columns[inires]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="inires"
+                      externalMetadataColumnId="Package\DF Staging\DST Staging.Inputs[Entrada de destino de OLE DB].ExternalColumns[inires]"
+                      lineageId="Package\DF Staging\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[inires]" />
+                    <inputColumn
+                      refId="Package\DF Staging\DST Staging.Inputs[Entrada de destino de OLE DB].Columns[sectime]"
+                      cachedDataType="i8"
+                      cachedName="sectime"
+                      externalMetadataColumnId="Package\DF Staging\DST Staging.Inputs[Entrada de destino de OLE DB].ExternalColumns[sectime]"
+                      lineageId="Package\DF Staging\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[sectime]" />
+                    <inputColumn
+                      refId="Package\DF Staging\DST Staging.Inputs[Entrada de destino de OLE DB].Columns[rmonth]"
+                      cachedDataType="i4"
+                      cachedName="rmonth"
+                      externalMetadataColumnId="Package\DF Staging\DST Staging.Inputs[Entrada de destino de OLE DB].ExternalColumns[rmonth]"
+                      lineageId="Package\DF Staging\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[rmonth]" />
+                    <inputColumn
+                      refId="Package\DF Staging\DST Staging.Inputs[Entrada de destino de OLE DB].Columns[ryear]"
+                      cachedDataType="i4"
+                      cachedName="ryear"
+                      externalMetadataColumnId="Package\DF Staging\DST Staging.Inputs[Entrada de destino de OLE DB].ExternalColumns[ryear]"
+                      lineageId="Package\DF Staging\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[ryear]" />
+                    <inputColumn
+                      refId="Package\DF Staging\DST Staging.Inputs[Entrada de destino de OLE DB].Columns[min_total]"
+                      cachedDataType="i4"
+                      cachedName="min_total"
+                      externalMetadataColumnId="Package\DF Staging\DST Staging.Inputs[Entrada de destino de OLE DB].ExternalColumns[min_total]"
+                      lineageId="Package\DF Staging\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[min_total]" />
+                    <inputColumn
+                      refId="Package\DF Staging\DST Staging.Inputs[Entrada de destino de OLE DB].Columns[min_unavail]"
+                      cachedDataType="i4"
+                      cachedName="min_unavail"
+                      externalMetadataColumnId="Package\DF Staging\DST Staging.Inputs[Entrada de destino de OLE DB].ExternalColumns[min_unavail]"
+                      lineageId="Package\DF Staging\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[min_unavail]" />
+                    <inputColumn
+                      refId="Package\DF Staging\DST Staging.Inputs[Entrada de destino de OLE DB].Columns[porc_avail]"
+                      cachedDataType="r8"
+                      cachedName="porc_avail"
+                      externalMetadataColumnId="Package\DF Staging\DST Staging.Inputs[Entrada de destino de OLE DB].ExternalColumns[porc_avail]"
+                      lineageId="Package\DF Staging\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[porc_avail]" />
+                    <inputColumn
+                      refId="Package\DF Staging\DST Staging.Inputs[Entrada de destino de OLE DB].Columns[annual_min_total]"
+                      cachedDataType="i4"
+                      cachedName="annual_min_total"
+                      externalMetadataColumnId="Package\DF Staging\DST Staging.Inputs[Entrada de destino de OLE DB].ExternalColumns[annual_min_total]"
+                      lineageId="Package\DF Staging\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[annual_min_total]" />
+                    <inputColumn
+                      refId="Package\DF Staging\DST Staging.Inputs[Entrada de destino de OLE DB].Columns[annual_min_unavail]"
+                      cachedDataType="i4"
+                      cachedName="annual_min_unavail"
+                      externalMetadataColumnId="Package\DF Staging\DST Staging.Inputs[Entrada de destino de OLE DB].ExternalColumns[annual_min_unavail]"
+                      lineageId="Package\DF Staging\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[annual_min_unavail]" />
+                    <inputColumn
+                      refId="Package\DF Staging\DST Staging.Inputs[Entrada de destino de OLE DB].Columns[annual_porc_avail]"
+                      cachedDataType="r8"
+                      cachedName="annual_porc_avail"
+                      externalMetadataColumnId="Package\DF Staging\DST Staging.Inputs[Entrada de destino de OLE DB].ExternalColumns[annual_porc_avail]"
+                      lineageId="Package\DF Staging\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[annual_porc_avail]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DF Staging\DST Staging.Inputs[Entrada de destino de OLE DB].ExternalColumns[date_time]"
+                      dataType="dbTimeStamp"
+                      name="date_time" />
+                    <externalMetadataColumn
+                      refId="Package\DF Staging\DST Staging.Inputs[Entrada de destino de OLE DB].ExternalColumns[link_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="32"
+                      name="link_name" />
+                    <externalMetadataColumn
+                      refId="Package\DF Staging\DST Staging.Inputs[Entrada de destino de OLE DB].ExternalColumns[group_name_prefix]"
+                      codePage="1252"
+                      dataType="str"
+                      length="32"
+                      name="group_name_prefix" />
+                    <externalMetadataColumn
+                      refId="Package\DF Staging\DST Staging.Inputs[Entrada de destino de OLE DB].ExternalColumns[inires]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="inires" />
+                    <externalMetadataColumn
+                      refId="Package\DF Staging\DST Staging.Inputs[Entrada de destino de OLE DB].ExternalColumns[sectime]"
+                      dataType="i8"
+                      name="sectime" />
+                    <externalMetadataColumn
+                      refId="Package\DF Staging\DST Staging.Inputs[Entrada de destino de OLE DB].ExternalColumns[rmonth]"
+                      dataType="i4"
+                      name="rmonth" />
+                    <externalMetadataColumn
+                      refId="Package\DF Staging\DST Staging.Inputs[Entrada de destino de OLE DB].ExternalColumns[ryear]"
+                      dataType="i4"
+                      name="ryear" />
+                    <externalMetadataColumn
+                      refId="Package\DF Staging\DST Staging.Inputs[Entrada de destino de OLE DB].ExternalColumns[min_total]"
+                      dataType="i4"
+                      name="min_total" />
+                    <externalMetadataColumn
+                      refId="Package\DF Staging\DST Staging.Inputs[Entrada de destino de OLE DB].ExternalColumns[min_unavail]"
+                      dataType="i4"
+                      name="min_unavail" />
+                    <externalMetadataColumn
+                      refId="Package\DF Staging\DST Staging.Inputs[Entrada de destino de OLE DB].ExternalColumns[porc_avail]"
+                      dataType="r8"
+                      name="porc_avail" />
+                    <externalMetadataColumn
+                      refId="Package\DF Staging\DST Staging.Inputs[Entrada de destino de OLE DB].ExternalColumns[annual_min_total]"
+                      dataType="i4"
+                      name="annual_min_total" />
+                    <externalMetadataColumn
+                      refId="Package\DF Staging\DST Staging.Inputs[Entrada de destino de OLE DB].ExternalColumns[annual_min_unavail]"
+                      dataType="i4"
+                      name="annual_min_unavail" />
+                    <externalMetadataColumn
+                      refId="Package\DF Staging\DST Staging.Inputs[Entrada de destino de OLE DB].ExternalColumns[annual_porc_avail]"
+                      dataType="r8"
+                      name="annual_porc_avail" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DF Staging\DST Staging.Outputs[Salida de error de destino de OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de OLE DB"
+                  synchronousInputId="Package\DF Staging\DST Staging.Inputs[Entrada de destino de OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF Staging\DST Staging.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DF Staging\DST Staging.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DF Staging\DST Staging.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DF Staging\DST Staging.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DF Staging\Origen de OLE DB"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Origen de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;7"
+              description="Origen de OLE DB"
+              name="Origen de OLE DB"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[dbo].[avail_sotr]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable">User::SQL_Query_Source_iccpgw</property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT  * FROM iccpgw.dbo.avail_sotr</property>
+                <property
+                  dataType="System.String"
+                  description="Variable que contiene el comando SQL para ejecutar."
+                  name="SqlCommandVariable">User::SQL_Query_Source_iccpgw</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="Asignaciones entre los parámetros del comando SQL y las variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DF Staging\Origen de OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="{FEA086FB-948D-4888-BBF8-978572FE71CB}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[192.168.20.11.iccpgw.iccpview]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DF Staging\Origen de OLE DB.Outputs[Salida de origen de OLE DB]"
+                  name="Salida de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF Staging\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[date_time]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF Staging\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[date_time]"
+                      lineageId="Package\DF Staging\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[date_time]"
+                      name="date_time"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF Staging\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[link_name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF Staging\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[link_name]"
+                      length="32"
+                      lineageId="Package\DF Staging\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[link_name]"
+                      name="link_name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF Staging\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[group_name_prefix]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF Staging\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[group_name_prefix]"
+                      length="32"
+                      lineageId="Package\DF Staging\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[group_name_prefix]"
+                      name="group_name_prefix"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF Staging\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[inires]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF Staging\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[inires]"
+                      length="1"
+                      lineageId="Package\DF Staging\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[inires]"
+                      name="inires"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF Staging\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[sectime]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF Staging\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[sectime]"
+                      lineageId="Package\DF Staging\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[sectime]"
+                      name="sectime"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF Staging\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[rmonth]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF Staging\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[rmonth]"
+                      lineageId="Package\DF Staging\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[rmonth]"
+                      name="rmonth"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF Staging\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[ryear]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF Staging\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[ryear]"
+                      lineageId="Package\DF Staging\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[ryear]"
+                      name="ryear"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF Staging\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[min_total]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF Staging\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[min_total]"
+                      lineageId="Package\DF Staging\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[min_total]"
+                      name="min_total"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF Staging\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[min_unavail]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF Staging\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[min_unavail]"
+                      lineageId="Package\DF Staging\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[min_unavail]"
+                      name="min_unavail"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF Staging\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[porc_avail]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF Staging\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[porc_avail]"
+                      lineageId="Package\DF Staging\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[porc_avail]"
+                      name="porc_avail"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF Staging\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[annual_min_total]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF Staging\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[annual_min_total]"
+                      lineageId="Package\DF Staging\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[annual_min_total]"
+                      name="annual_min_total"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF Staging\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[annual_min_unavail]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF Staging\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[annual_min_unavail]"
+                      lineageId="Package\DF Staging\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[annual_min_unavail]"
+                      name="annual_min_unavail"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF Staging\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[annual_porc_avail]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF Staging\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[annual_porc_avail]"
+                      lineageId="Package\DF Staging\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[annual_porc_avail]"
+                      name="annual_porc_avail"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DF Staging\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[date_time]"
+                      dataType="dbTimeStamp"
+                      name="date_time" />
+                    <externalMetadataColumn
+                      refId="Package\DF Staging\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[link_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="32"
+                      name="link_name" />
+                    <externalMetadataColumn
+                      refId="Package\DF Staging\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[group_name_prefix]"
+                      codePage="1252"
+                      dataType="str"
+                      length="32"
+                      name="group_name_prefix" />
+                    <externalMetadataColumn
+                      refId="Package\DF Staging\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[inires]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="inires" />
+                    <externalMetadataColumn
+                      refId="Package\DF Staging\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[sectime]"
+                      dataType="i8"
+                      name="sectime" />
+                    <externalMetadataColumn
+                      refId="Package\DF Staging\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[rmonth]"
+                      dataType="i4"
+                      name="rmonth" />
+                    <externalMetadataColumn
+                      refId="Package\DF Staging\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[ryear]"
+                      dataType="i4"
+                      name="ryear" />
+                    <externalMetadataColumn
+                      refId="Package\DF Staging\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[min_total]"
+                      dataType="i4"
+                      name="min_total" />
+                    <externalMetadataColumn
+                      refId="Package\DF Staging\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[min_unavail]"
+                      dataType="i4"
+                      name="min_unavail" />
+                    <externalMetadataColumn
+                      refId="Package\DF Staging\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[porc_avail]"
+                      dataType="r8"
+                      name="porc_avail" />
+                    <externalMetadataColumn
+                      refId="Package\DF Staging\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[annual_min_total]"
+                      dataType="i4"
+                      name="annual_min_total" />
+                    <externalMetadataColumn
+                      refId="Package\DF Staging\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[annual_min_unavail]"
+                      dataType="i4"
+                      name="annual_min_unavail" />
+                    <externalMetadataColumn
+                      refId="Package\DF Staging\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[annual_porc_avail]"
+                      dataType="r8"
+                      name="annual_porc_avail" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DF Staging\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF Staging\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[date_time]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DF Staging\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[date_time]"
+                      name="date_time" />
+                    <outputColumn
+                      refId="Package\DF Staging\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[link_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="32"
+                      lineageId="Package\DF Staging\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[link_name]"
+                      name="link_name" />
+                    <outputColumn
+                      refId="Package\DF Staging\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[group_name_prefix]"
+                      codePage="1252"
+                      dataType="str"
+                      length="32"
+                      lineageId="Package\DF Staging\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[group_name_prefix]"
+                      name="group_name_prefix" />
+                    <outputColumn
+                      refId="Package\DF Staging\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[inires]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\DF Staging\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[inires]"
+                      name="inires" />
+                    <outputColumn
+                      refId="Package\DF Staging\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[sectime]"
+                      dataType="i8"
+                      lineageId="Package\DF Staging\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[sectime]"
+                      name="sectime" />
+                    <outputColumn
+                      refId="Package\DF Staging\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[rmonth]"
+                      dataType="i4"
+                      lineageId="Package\DF Staging\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[rmonth]"
+                      name="rmonth" />
+                    <outputColumn
+                      refId="Package\DF Staging\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[ryear]"
+                      dataType="i4"
+                      lineageId="Package\DF Staging\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[ryear]"
+                      name="ryear" />
+                    <outputColumn
+                      refId="Package\DF Staging\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[min_total]"
+                      dataType="i4"
+                      lineageId="Package\DF Staging\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[min_total]"
+                      name="min_total" />
+                    <outputColumn
+                      refId="Package\DF Staging\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[min_unavail]"
+                      dataType="i4"
+                      lineageId="Package\DF Staging\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[min_unavail]"
+                      name="min_unavail" />
+                    <outputColumn
+                      refId="Package\DF Staging\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[porc_avail]"
+                      dataType="r8"
+                      lineageId="Package\DF Staging\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[porc_avail]"
+                      name="porc_avail" />
+                    <outputColumn
+                      refId="Package\DF Staging\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[annual_min_total]"
+                      dataType="i4"
+                      lineageId="Package\DF Staging\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[annual_min_total]"
+                      name="annual_min_total" />
+                    <outputColumn
+                      refId="Package\DF Staging\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[annual_min_unavail]"
+                      dataType="i4"
+                      lineageId="Package\DF Staging\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[annual_min_unavail]"
+                      name="annual_min_unavail" />
+                    <outputColumn
+                      refId="Package\DF Staging\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[annual_porc_avail]"
+                      dataType="r8"
+                      lineageId="Package\DF Staging\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[annual_porc_avail]"
+                      name="annual_porc_avail" />
+                    <outputColumn
+                      refId="Package\DF Staging\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DF Staging\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DF Staging\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DF Staging\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DF Staging.Paths[Salida de origen de OLE DB]"
+              endId="Package\DF Staging\DST Staging.Inputs[Entrada de destino de OLE DB]"
+              name="Salida de origen de OLE DB"
+              startId="Package\DF Staging\Origen de OLE DB.Outputs[Salida de origen de OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL Truncate Staging"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarea Ejecutar SQL"
+      DTS:DTSID="{1B933D83-8DBE-481D-9EA6-7E29121DD5BF}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL Truncate Staging"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{D3C1FDCC-EB20-42DD-BF58-438FB6ACFF68}"
+          SQLTask:SqlStatementSource="Truncate table DEV.Staging.avail_sotr_GTI_009" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción]"
+      DTS:CreationName=""
+      DTS:DTSID="{DC2B7DCA-E857-4151-9D21-B39E7F306F80}"
+      DTS:From="Package\SQL Truncate Staging"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción"
+      DTS:To="Package\DF Staging" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{6198A610-8077-4474-8BB6-FB96C8D03CB8}"
+      DTS:From="Package\DF Staging"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción 1"
+      DTS:To="Package\DF Final" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="121,42"
+          Id="Package\DF Final"
+          TopLeft="92,282" />
+        <NodeLayout
+          Size="134,42"
+          Id="Package\DF Staging"
+          TopLeft="84,185" />
+        <NodeLayout
+          Size="182,42"
+          Id="Package\SQL Truncate Staging"
+          TopLeft="60,60" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción]"
+          TopLeft="151,102">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,83"
+              Start="0,0"
+              End="0,75.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,75.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción 1]"
+          TopLeft="151.75,227">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,55"
+              Start="0,0"
+              End="0,47.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,47.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DF Final">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="170,42"
+          Id="Package\DF Final\Origen de OLE DB"
+          TopLeft="232.090909090909,170" />
+        <NodeLayout
+          Size="128,42"
+          Id="Package\DF Final\DST Final"
+          TopLeft="260.772727272727,265.954545454546" />
+        <EdgeLayout
+          Id="Package\DF Final.Paths[Salida de origen de OLE DB]"
+          TopLeft="320.931818181818,212">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,53.954545454546"
+              Start="0,0"
+              End="0,46.454545454546">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,46.454545454546" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DF Final\DST Final">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DF Final\Origen de OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\DF Staging">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="170,42"
+          Id="Package\DF Staging\Origen de OLE DB"
+          TopLeft="232.090909090909,170" />
+        <NodeLayout
+          Size="110,42"
+          Id="Package\DF Staging\DST Staging"
+          TopLeft="260.772727272727,265.954545454546" />
+        <EdgeLayout
+          Id="Package\DF Staging.Paths[Salida de origen de OLE DB]"
+          TopLeft="316.431818181818,212">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,53.954545454546"
+              Start="0,0"
+              End="0,46.454545454546">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,46.454545454546" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DF Staging\DST Staging">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DF Staging\Origen de OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
