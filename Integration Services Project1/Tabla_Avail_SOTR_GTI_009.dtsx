@@ -7,12 +7,12 @@
   DTS:CreatorName="CENTRAL\maalonso"
   DTS:DTSID="{AEB0054F-43D6-416C-934D-2C2C9A7941E9}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.2000.170"
+  DTS:LastModifiedProductVersion="16.0.5270.0"
   DTS:LocaleID="3082"
   DTS:ObjectName="Tabla_Avail_SOTR_GTI_009"
   DTS:PackageType="5"
-  DTS:VersionBuild="12"
-  DTS:VersionGUID="{F6A15528-36FC-4B4C-9D96-CC5AF25FE586}">
+  DTS:VersionBuild="14"
+  DTS:VersionGUID="{672938FA-A7C8-49CC-B91F-800EB79FDB90}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -56,7 +56,7 @@
                   dataType="System.String"
                   description="Comando SQL para ejecutar."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                 <property
                   dataType="System.Int32"
                   description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
@@ -301,7 +301,7 @@
                   dataType="System.String"
                   description="Comando SQL para ejecutar."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT  * FROM iccpgw.dbo.avail_sotr</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT  * FROM iccpgw.dbo.avail_sotr</property>
                 <property
                   dataType="System.String"
                   description="Variable que contiene el comando SQL para ejecutar."
@@ -666,7 +666,7 @@
                   dataType="System.String"
                   description="Comando SQL para ejecutar."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                 <property
                   dataType="System.Int32"
                   description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
@@ -911,7 +911,7 @@
                   dataType="System.String"
                   description="Comando SQL para ejecutar."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT  * FROM iccpgw.dbo.avail_sotr</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT  * FROM iccpgw.dbo.avail_sotr</property>
                 <property
                   dataType="System.String"
                   description="Variable que contiene el comando SQL para ejecutar."
@@ -1348,7 +1348,7 @@
     design-time-name="Package\DF Final">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="170,42"
           Id="Package\DF Final\Origen de OLE DB"
@@ -1376,9 +1376,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

@@ -7,6 +7,10 @@
     <DTS:ConnectionManager
       DTS:ConnectRetryCount="1"
       DTS:ConnectRetryInterval="5"
-      DTS:ConnectionString="Data Source=192.168.10.11;User ID=iccpview;Initial Catalog=iccpgw;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;" />
+      DTS:ConnectionString="Data Source=192.168.10.11;User ID=iccpview;Initial Catalog=iccpgw;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-{A9A179BF-B285-4A02-9C5A-A275354E62C2}192.168.10.11.iccpgw.iccpview;">
+      <DTS:Password
+        DTS:Name="Password"
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA4828lKlvlEK11cFNmiqE0AAAAAACAAAAAAADZgAAwAAAABAAAAACCQexWERJUTGR2g7/2r8TAAAAAASAAACgAAAAEAAAADA/U5FbO1qDxVpSB6/jPnl4AAAAI88uchfgBWJ+aUZ6CkHK0GQzBWYYU3gnBm5lAEH1D1Wxbi0tC0DF+k2j/iKFnXocAKqFzJDr4ES5H5mJill8krDeU7ISaehJ4w3IJF/Nuck7Wu8bKtwqE0uCXJzWVc7oZjfakAz2U5LUgteQnGJYWa/frNKltZ2nFAAAAIklCtzAxd/PYwjYdHxa3iACf4/D</DTS:Password>
+    </DTS:ConnectionManager>
   </DTS:ObjectData>
 </DTS:ConnectionManager>
